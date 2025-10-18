@@ -40,7 +40,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		while (big[i + length] == little[length])
 		{
 			if (length + i == j)
-				return ();
+				return ((char *)&big[i + length]);
 		}
 		i++;
 	}
