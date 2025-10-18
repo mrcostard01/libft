@@ -6,7 +6,7 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 13:41:32 by wipion            #+#    #+#             */
-/*   Updated: 2025/09/24 18:48:55 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/18 14:59:01 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -19,12 +19,12 @@ char	*ft_strdup(const char *s)
 
 	length = 0;
 	i = 0;
-	while (src[length])
+	while (s[length])
 		length++;
 	arr = malloc(sizeof(char) * length);
 	if (!arr)
 		return (0);
-	while (src[i])
+	while (s[i])
 	{
 		arr[i] = s[i];
 		i++;

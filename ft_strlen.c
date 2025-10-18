@@ -6,15 +6,15 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:06:25 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/13 12:08:09 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/18 15:08:37 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strlen(char *str)
+int	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }

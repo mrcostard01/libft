@@ -6,7 +6,7 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 18:30:41 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/15 20:47:47 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/18 17:04:53 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,8 +15,8 @@ void	*ft_memcpy(void *d, const void *s, size_t n)
 {
 	size_t	i;
 
-	i = 0;
-	n--;
+	i = 1;
+
 	while (i <= n)
 	{
 		*(char *)d = *(char *)s;
@@ -24,5 +24,6 @@ void	*ft_memcpy(void *d, const void *s, size_t n)
 		d++;
 		i++;
 	}
+	d -= i - 1;
 	return (d);
 }

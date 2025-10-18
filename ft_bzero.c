@@ -6,22 +6,35 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:55:41 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/15 20:46:37 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/18 17:02:36 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
-	i = 0;
-	n--;
+	i = 1;
 	while (i <= n)
 	{
 		*(char *)s = '\0';
 		s++;
 		i++;
 	}
-	return (s);
+
 }
+/*#include <unistd.h>
+int	main()
+{
+	char	test[10] = "oui'lki[ok";
+	int	i;
+	i = 0;
+	ft_bzero(test, 0);
+
+	while (i <= 10)
+	{
+		write(1, &test[i], 1);
+		i++;
+	}
+}*/
