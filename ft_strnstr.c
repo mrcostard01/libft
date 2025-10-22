@@ -6,20 +6,10 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:10:01 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/18 15:15:18 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/22 18:52:33 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
-int	ft_strlength(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -28,19 +18,28 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t		j;
 
 	length = 0;
-	j = ft_strlength(little);
+	j = ft_strlen(little);
 	i = 0;
-	if (j == 0)
+	if (little == ((void*)0) && big == ((void*)0))
+		return (NULL);
+	if (little[0] == '\0')
 		return ((char *)big);
-	while (big[i] != '\0' && i <= len)
+	while (big[i] && i < len )
 	{
-		while (big[i + length] == little[length])
+		while (big[i + length] == little[length] && length + i  < len)
 		{
-			if (length + i == j)
-				return ((char *)&big[length + i - 1]);
 			length++;
+			if (length == j && big[length + i - 2] == little[length - 2])
+				return ((char *)&big[i]);
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
+/*#include <stdio.h>
+int	main()
+{
+	char	*test = ft_strnstr("lorem ipsum dolor sit lorem ipsum dolor", "ipsum", 35);
+
+	printf("%s", test);
+}*/

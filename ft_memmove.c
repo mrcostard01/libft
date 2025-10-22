@@ -6,7 +6,7 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:15:17 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/18 17:14:49 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/22 17:27:43 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,15 +18,17 @@ void	*ft_memmove(void *d, const void *s, size_t n)
 
 	dchar = (char *)d;
 	schar = (char *)s;
-	if (ft_strlen(dchar) > ft_strlen(schar))
+	if (d == NULL && s == NULL )
+		return (NULL);
+	if (dchar <= schar)
 	{
 		while (n--)
 			*dchar++ = *schar++;
 	}
-	if (ft_strlen(dchar) <= ft_strlen(schar))
+	if(dchar > schar)
 	{
 		dchar += n - 1;
-		schar += n - 1;
+		schar += n - 1;	
 		while (n--)
 			*dchar-- = *schar--;
 	}

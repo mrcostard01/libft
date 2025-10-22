@@ -6,7 +6,7 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:13:59 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/18 16:36:30 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/22 14:43:10 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,12 +16,14 @@ void	*ft_memset(void *s, unsigned int c, size_t n)
 	size_t	i;
 
 	i = 0;
+	if(n == 0)
+		return (s);
 	while (i <= n - 1)
 	{
 		*(char *)s = c;
 		s++;
 		i++;
 	}
-       	s -= i;	
+	s -= i;	
 	return (s);
 }
