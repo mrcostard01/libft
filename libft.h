@@ -22,6 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *d, const void *s, size_t n);
 void	*ft_memmove(void *d, const void *s, size_t n);
 void	*ft_memset(void *s, unsigned int c, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strchr(const char *str, int to_find);
 char	*ft_strdup(const char *s);
 int		ft_isalpha(int c);
