@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:17:38 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/20 16:53:48 by wipion           ###   ########.fr       */
+/*   Updated: 2025/11/01 00:03:28 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -21,8 +21,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	j = 0;
 	if (!s)
 		return (NULL);
-	if (len > 9223372036854775807)
-		subs = malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (len > (size_t)ft_strlen(s))
+		len = ft_strlen(s);
+	if (start > (size_t)ft_strlen(s))
+	{
+		subs = malloc(sizeof(char) * 1);
+		if(!subs)
+			return (NULL);
+		subs[0] = '\0';
+		return(subs);
+	}
+	if ()
 	else
 		subs = malloc(sizeof(char) * (len + 1));
 	if (!subs)
