@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *str, int to_find)
 	while (length >= 0)
 	{
 		if (str[length] == (char)to_find)
-			return((char *)&str[length]);
+			return ((char *)&str[length]);
 		length--;
 	}
 	str = 0;

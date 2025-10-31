@@ -9,18 +9,17 @@
 /*   Updated: 2025/10/23 22:10:22 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
+
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*arr;
 
 	if ((nmemb * size) > 214743647)
-		return(NULL);
+		return (NULL);
 	arr = malloc(nmemb * size);
 	if (!arr)
-		return(NULL);
+		return (NULL);
 	ft_bzero(arr, (nmemb * size));
 	return (arr);
 }
-

@@ -22,19 +22,4 @@ void	ft_bzero(void *s, size_t n)
 		s++;
 		i++;
 	}
-
 }
-/*#include <unistd.h>
-int	main()
-{
-	char	test[10] = "oui'lki[ok";
-	int	i;
-	i = 0;
-	ft_bzero(test, 0);
-
-	while (i <= 10)
-	{
-		write(1, &test[i], 1);
-		i++;
-	}
-}*/

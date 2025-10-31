@@ -12,7 +12,7 @@
 int	ft_isdigit(int c)
 {
 	int	istrue;
-	
+
 	istrue = 0;
 	if (c >= 48 && c <= 57)
 		istrue = 1;

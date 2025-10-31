@@ -20,13 +20,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	length = 0;
 	j = ft_strlen(little);
 	i = 0;
-	if (little == ((void*)0) && big == ((void*)0))
+	if (little == NULL && big == NULL)
 		return (NULL);
 	if (little[0] == '\0')
 		return ((char *)big);
-	while (big[i] && i < len )
+	while (big[i] && i < len)
 	{
-		while (big[i + length] == little[length] && length + i  < len)
+		while (big[i + length] == little[length] && length + i < len)
 		{
 			length++;
 			if (length == j && big[length + i - 2] == little[length - 2])
@@ -36,10 +36,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-/*#include <stdio.h>
-int	main()
-{
-	char	*test = ft_strnstr("lorem ipsum dolor sit lorem ipsum dolor", "ipsum", 35);
-
-	printf("%s", test);
-}*/

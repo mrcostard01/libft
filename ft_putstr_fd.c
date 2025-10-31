@@ -6,22 +6,21 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:43:46 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/31 20:43:49 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/31 23:04:38 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include <unistd.h>
 
-void    ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-    int     i;
+	int	i;
 
-    i = 0;
-    if (fd < 0)
-        return ;
-    while (s[i] != '\0')
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
+	i = 0;
+	if (fd < 0)
+		return ;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

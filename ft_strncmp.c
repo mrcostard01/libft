@@ -22,7 +22,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	{
 		if (s1[i] != s2[i])
 		{
-			if(ft_strlen(s1) > ft_strlen(s2))
+			if (ft_strlen(s1) > ft_strlen(s2))
 				return (1);
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		}

@@ -25,10 +25,10 @@ void	*ft_memmove(void *d, const void *s, size_t n)
 		while (n--)
 			*dchar++ = *schar++;
 	}
-	if(dchar > schar)
+	if (dchar > schar)
 	{
 		dchar += n - 1;
-		schar += n - 1;	
+		schar += n - 1;
 		while (n--)
 			*dchar-- = *schar--;
 	}

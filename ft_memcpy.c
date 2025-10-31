@@ -16,8 +16,7 @@ void	*ft_memcpy(void *d, const void *s, size_t n)
 	size_t	i;
 
 	i = 1;
-
-	if(d == NULL && s == NULL)
+	if (d == NULL && s == NULL)
 		return (NULL);
 	while (i <= n)
 	{
@@ -29,19 +28,3 @@ void	*ft_memcpy(void *d, const void *s, size_t n)
 	d -= i - 1;
 	return (d);
 }
-/*#include <stdio.h>
-#include <string.h>
-int	main()
-{
-	char	d[] = "bonjouri";
-	char 	s[] = "ouiouiou";
-	char	pidfj[] = "bonjour";
-	char	s1[] = "ouiouioui";
-	ft_memcpy(d, s, 9);
-	memcpy(pidfj, s1, 8);
-
-	printf("%s\n", d);
-	//printf("%s\n", pidfj);
-
-
-}*/

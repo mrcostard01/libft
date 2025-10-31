@@ -6,16 +6,14 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 20:37:53 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/31 20:38:11 by wipion           ###   ########.fr       */
+/*   Updated: 2025/10/31 23:02:54 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 #include <unistd.h>
 
-void    ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-    if (fd < 0)
-        return ;
-    write(fd, &c, 1);
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
 }

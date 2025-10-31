@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dest, const char *src, unsigned int size)
 	i = 0;
 	while (dest[len_des])
 		len_des++;
-	while ( src[len_src])
+	while (src[len_src])
 		len_src++;
 	limit = size - len_des - 1;
 	if (len_des >= size)
