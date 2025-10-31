@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 12:06:25 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/18 15:08:37 by wipion           ###   ########.fr       */
+/*   Created: 2025/10/31 20:50:25 by wipion            #+#    #+#             */
+/*   Updated: 2025/10/31 20:50:32 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_strlen(const char *s)
-{
-	int	i;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+
+#include <unistd.h>
+
+void    ft_putendl_fd(char *s, int fd)
+{
+    int     i;
+
+    i = 0;
+    if (fd < 0)
+        return ;
+    while (s[i] != '\0')
+    {
+        write(fd, &s[i], 1);
+        i++;
+    }
+    write(fd, "\n", 1);
 }
