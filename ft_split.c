@@ -6,7 +6,7 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 22:42:17 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/31 23:19:58 by wipion           ###   ########.fr       */
+/*   Updated: 2025/11/01 22:28:01 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,7 +19,7 @@ char	*getword(int *start, const char *s, int c)
 	i = *start;
 	while (s[i] != c && s[i] != '\0')
 		i++;
-	str = malloc((i -(*start) + 1) * sizeof(char));
+	str = malloc((i -(*start)+ 1) * sizeof(char));
 	if (str == NULL)
 	{
 		(*start)++;
@@ -33,6 +33,7 @@ char	*getword(int *start, const char *s, int c)
 		(*start)++;
 	}
 	str[i] = '\0';
+	(*start)--;
 	while (s[(*start)] == c)
 		(*start)++;
 	return (str);
@@ -46,7 +47,10 @@ char	**make_empty_array(char *str_to_free)
 		free(str_to_free);
 	arr = malloc((1) * sizeof(char *));
 	if (!arr)
+	{
+		free(arr);
 		return (NULL);
+	}
 	arr[0] = NULL;
 	return (arr);
 }
@@ -81,7 +85,10 @@ char	**make_one_line_array(const char *s)
 		return (NULL);
 	arr[0] = ft_strdup(s);
 	if (arr[0] == NULL)
+	{
+		free(arr);
 		return (NULL);
+	}
 	arr[1] = NULL;
 	return (arr);
 }
@@ -104,26 +111,25 @@ char	**ft_split(char const *s, char c)
 	if (s_trimmed == NULL)
 		return (NULL);
 	if (s_trimmed[0] == '\0')
-			return (make_empty_array(s_trimmed));
+		return (make_empty_array(s_trimmed));
 	len = get_size_array(s_trimmed, c);
 	str = malloc((len + 2) * sizeof(char *));
-	if (!str) {
-			free(s_trimmed);
-			return (NULL);
-		}
+	if (!str) 
+	{
+		free(s_trimmed);
+		return (NULL);
+	}
 	while (i < (len + 1)) {
-		if ((str[i] = getword(&start, s_trimmed, c)) == NULL) {
-				free(s_trimmed);
-				return (NULL);
+		str[i] = getword(&start, s_trimmed, c);
+		if(!str[i])
+		{
+			free(s_trimmed);
+			free(str);
+			return (NULL);
 		}
 		i++;
 	}
 	str[i] = NULL;
 	free(s_trimmed);
 	return (str);
-}
-
-int		main
-{
-char	**str;
 }
