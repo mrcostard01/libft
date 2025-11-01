@@ -19,6 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	j = 0;
+
 	if (!s)
 		return (NULL);
 	if (len > (size_t)ft_strlen(s))
@@ -31,9 +32,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		subs[0] = '\0';
 		return(subs);
 	}
-	if ()
-	else
-		subs = malloc(sizeof(char) * (len + 1));
+	else {
+		if (ft_strlen(s) - len < start)
+			subs = malloc(sizeof(char) * ((ft_strlen(s) - start)  + 1));
+		else
+			subs = malloc(sizeof(char) * (len + 1));
+		}
 	if (!subs)
 		return (NULL);
 	while (s[i])

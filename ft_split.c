@@ -42,7 +42,8 @@ char	**make_empty_array(char *str_to_free)
 {
 	char	**arr;
 
-	free(str_to_free);
+	if (str_to_free != NULL)
+		free(str_to_free);
 	arr = malloc((1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
@@ -79,6 +80,8 @@ char	**make_one_line_array(const char *s)
 	if (arr == NULL)
 		return (NULL);
 	arr[0] = ft_strdup(s);
+	if (arr[0] == NULL)
+		return (NULL);
 	arr[1] = NULL;
 	return (arr);
 }
@@ -91,22 +94,36 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 	char	*s_trimmed;
 
-	i = -1;
+	i = 0;
 	start = 0;
 	if (s == NULL || s[0] == '\0')
 		return (make_empty_array(NULL));
 	if (c == '\0')
 		return (make_one_line_array(s));
 	s_trimmed = ft_strtrim(s, &c);
-	if ((s_trimmed == NULL) || (s_trimmed[0] == '\0'))
-		return (make_empty_array(s_trimmed));
+	if (s_trimmed == NULL)
+		return (NULL);
+	if (s_trimmed[0] == '\0')
+			return (make_empty_array(s_trimmed));
 	len = get_size_array(s_trimmed, c);
 	str = malloc((len + 2) * sizeof(char *));
-	if (!str)
-		return (NULL);
-	while (++i < (len + 1))
-		str[i] = getword(&start, s_trimmed, c);
+	if (!str) {
+			free(s_trimmed);
+			return (NULL);
+		}
+	while (i < (len + 1)) {
+		if ((str[i] = getword(&start, s_trimmed, c)) == NULL) {
+				free(s_trimmed);
+				return (NULL);
+		}
+		i++;
+	}
 	str[i] = NULL;
 	free(s_trimmed);
 	return (str);
+}
+
+int		main
+{
+char	**str;
 }
