@@ -15,7 +15,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*arr;
 
-	if (((nmemb * size) > 214743647) || (nmemb * size) == 0)
+	if ((nmemb * size) > 214743647)
 		return (NULL);
 	arr = malloc(nmemb * size);
 	if (!arr)

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
+
 #include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, unsigned int size)
@@ -19,16 +21,20 @@ size_t	ft_strlcat(char *dest, const char *src, unsigned int size)
 	unsigned int	len_des;
 	unsigned int	len_src;
 
-	len_des = 0;
-	len_src = 0;
 	i = 0;
-	while (dest[len_des])
-		len_des++;
-	while (src[len_src])
-		len_src++;
-	limit = size - len_des - 1;
+	if (size == 0 && src[0] == '\0')
+		return (size);
+	if (dest == NULL && size == 0)
+		return (ft_strlen(src));
+	len_des = ft_strlen(dest);
+	len_src = ft_strlen(src);
 	if (len_des >= size)
 		return (len_src + size);
+	if (src[0] == '\0' && len_des == 0)
+		return (0);
+	if (src[0] == '\0' && len_des == size)
+		return (len_des + len_src);
+	limit = size - len_des - 1;
 	while (src[i] && i < limit)
 	{
 		dest[i + len_des] = src[i];

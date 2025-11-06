@@ -6,7 +6,7 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 22:42:17 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/31 23:19:58 by wipion           ###   ########.fr       */
+/*   Updated: 2025/11/06 17:17:12 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -69,15 +69,18 @@ char	**make_one_line_array(const char *s)
 	return (arr);
 }
 
-char	**run_split(int len, char **array, char *s_trimmed, char c) {
+char	**run_split(int len, char **array, char *s_trimmed, char c)
+{
 	int	i;
-	int start;
+	int	start;
 
 	i = 0;
 	start = 0;
-	while (i < (len + 1)) {
+	while (i < (len + 1))
+	{
 		array[i] = getword(&start, s_trimmed, c);
-		if (array[i] == NULL) {
+		if (array[i] == NULL)
+		{
 			free(s_trimmed);
 			ft_free_array(array);
 			return (NULL);
@@ -95,6 +98,12 @@ char	**ft_split(char const *s, char c)
 	char	**array;
 	char	*s_trimmed;
 
+	if (ft_strlen(s) == 1) {
+		array = malloc((len + 2) * sizeof(char *));
+		array[0][0] = s[0];
+		array[1] = NULL;
+		return (array);
+	}
 	if (s == NULL || s[0] == '\0')
 		return (make_empty_array(NULL));
 	if (c == '\0')
@@ -103,13 +112,14 @@ char	**ft_split(char const *s, char c)
 	if (s_trimmed == NULL)
 		return (NULL);
 	if (s_trimmed[0] == '\0')
-			return (make_empty_array(s_trimmed));
+		return (make_empty_array(s_trimmed));
 	len = ft_lenarr2d(s_trimmed, c);
 	array = malloc((len + 2) * sizeof(char *));
-	if (!array) {
-			free(s_trimmed);
-			return (NULL);
-		}
+	if (!array)
+	{
+		free(s_trimmed);
+		return (NULL);
+	}
 	array = run_split(len, array, s_trimmed, c);
 	return (array);
 }

@@ -6,7 +6,7 @@
 /*   By: wipion <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:24:43 by wipion            #+#    #+#             */
-/*   Updated: 2025/10/31 22:47:27 by wipion           ###   ########.fr       */
+/*   Updated: 2025/11/06 17:12:48 by wipion           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
-int     ft_lenarr2d(char *tab, char c);
+int		ft_lenarr2d(char *tab, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
 void	*ft_memchr(const void *s, int c, size_t n);
