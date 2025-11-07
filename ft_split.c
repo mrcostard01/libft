@@ -98,18 +98,12 @@ char	**ft_split(char const *s, char c)
 	char	**array;
 	char	*s_trimmed;
 
-	if (ft_strlen(s) == 1) {
-		array = malloc((len + 2) * sizeof(char *));
-		array[0][0] = s[0];
-		array[1] = NULL;
-		return (array);
-	}
-	if (s == NULL || s[0] == '\0')
+	if (s == NULL || *s == '\0')
 		return (make_empty_array(NULL));
-	if (c == '\0')
+	if (c == '\0' || (ft_strlen(s) == 1 && s[0] != c))
 		return (make_one_line_array(s));
 	s_trimmed = ft_strtrim(s, &c);
-	if (s_trimmed == NULL)
+	if (!s_trimmed)
 		return (NULL);
 	if (s_trimmed[0] == '\0')
 		return (make_empty_array(s_trimmed));

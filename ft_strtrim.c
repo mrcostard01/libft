@@ -54,6 +54,8 @@ int	endcounter(char const *s1, char const *set)
 
 	i = ft_strlen(s1) - 1;
 	end = ft_strlen(s1) - 1;
+	if (ft_strlen(s1) == 2)
+		return (ft_strlen(s1) - 1);
 	while (s1[i] != '\0')
 	{
 		if (ft_char_in_list(s1[i], set) && end > 0)
@@ -65,26 +67,33 @@ int	endcounter(char const *s1, char const *set)
 	return (end);
 }
 
+char	*ft_strnull(void)
+{
+	char	*output;
+
+	output = malloc(sizeof(char) * 1);
+	if (!output)
+		return (NULL);
+	output[0] = '\0';
+	return (output);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	unsigned int		start;
 	unsigned int		end;
-	char	*output;
+	char				*output;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	start = startcounter(s1, set);
 	end = endcounter(s1, set);
 	if (end == 0)
-	{
-		output = malloc(sizeof(char) * 1);
-		if (!output)
-			return (NULL);
-		output[0] = '\0';
-		return (output);
-	}
+		return (ft_strnull());
 	if (start > end)
 		output = malloc(sizeof(char) * (start + end + 2));
+	else if (end == 1)
+		output = malloc(sizeof(char) * (end + start) + 1);
 	else
 		output = malloc(sizeof(char) * (end - start + 2));
 	if (!output)
@@ -95,9 +104,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	else
 		ft_strlcpy(output, (char *)s1, (end - start) + 2);
 	return (output);
-}/*
-#include <stdio.h>
-int	main() {
-	char	*s = ft_strtrim("(null)", abc);
-	printf("%s\n", s);
-}*/
+}
